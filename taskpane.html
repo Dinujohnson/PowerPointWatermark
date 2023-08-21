@@ -4,6 +4,12 @@
 <head>
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <style>
+        .rotate {
+            transform-origin: center center;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,7 +114,8 @@
                 style += " font-weight: bold;";
             }
 
-            const watermarkText = `<div style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
+            //const watermarkText = `<div style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
+            const watermarkText = `<div class="rotate" style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
             
             // Insert the watermark HTML with styling into the current selection
             await Office.context.document.setSelectedDataAsync(watermarkText, options);
