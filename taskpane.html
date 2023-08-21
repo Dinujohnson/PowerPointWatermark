@@ -75,20 +75,20 @@
 
 
             // Construct the watermark text with formatting, color, and bold style
-            //let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
-            //if (isBold) {
-                //watermarkText += " font-weight: bold;";
-            //}
-            //watermarkText += `">${watermarkTextValue}</div>`;
-
-            // Construct the watermark text with formatting, color, bold style, and font size
-            let style = `size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
-
+            let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
             if (isBold) {
-                style += " font-weight: bold;";
+                watermarkText += " font-weight: bold;";
             }
+            watermarkText += `">${watermarkTextValue}</div>`;
 
-            const watermarkText = `<div style="${style}">${watermarkTextValue}</div>`;
+            // Construct the watermark text with font size
+            //let style = `size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
+
+            //if (isBold) {
+                //style += " font-weight: bold;";
+            //}
+
+            //const watermarkText = `<div style="${style}">${watermarkTextValue}</div>`;
             
             // Insert the watermark HTML with styling into the current selection
             await Office.context.document.setSelectedDataAsync(watermarkText, options);
