@@ -24,9 +24,17 @@
         <label for="boldCheckbox">Bold:</label>
         <input type="checkbox" id="boldCheckbox">
     </div>
-    <div class="form-group">
-        <label class="ms-Label">Font Size</label>
-        <input type="range" id="font-size" min="10" max="150" step="1" class="ms-Slider-slider" />
+    <div>
+        <label for="fontSize">Font Size:</label>
+        <select id="fontSize">
+            <option value="10">10</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="70">70</option>
+            <option value="80">80</option>
+            <option value="90">90</option>
+            <!-- Add more options as needed -->
+        </select>
     </div>
     <button id="addButton">Add Watermark</button>
 </body>
@@ -53,9 +61,9 @@
             const boldCheckbox = document.getElementById("boldCheckbox");
             const isBold = boldCheckbox.checked;
             
-            // Get the selected font size from the range input
-            const fontSizeInput = document.getElementById("font-size");
-            const selectedFontSize = fontSizeInput.value;
+            // Get the selected font size from the dropdown
+            const fontSizeSelect = document.getElementById("fontSize");
+            const selectedFontSize = fontSizeSelect.value;
 
             // Set coercion type to text since we want to apply formatting
             const options = { coercionType: Office.CoercionType.Text };
@@ -74,7 +82,7 @@
             //watermarkText += `">${watermarkTextValue}</div>`;
 
             // Construct the watermark text with formatting, color, bold style, and font size
-            let style = `font-size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
+            let style = `size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
 
             if (isBold) {
                 style += " font-weight: bold;";
