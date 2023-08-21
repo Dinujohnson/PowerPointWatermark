@@ -8,8 +8,18 @@
 
 <body>
     <p>This add-in will insert a 'CONFIDENTIAL' watermark in the current selection of the slide.</p>
-    <label for="watermarkText">Watermark Text:</label>
-    <input type="text" id="watermarkText" placeholder="Enter watermark text">
+    <div>
+        <label for="watermarkText">Watermark Text:</label>
+        <input type="text" id="watermarkText" placeholder="Enter watermark text">
+    </div>
+    <div>
+        <label for="watermarkColor">Color:</label>
+        <select id="watermarkColor">
+            <option value="#FF0000">Red</option>
+            <option value="#00FF00">Green</option>
+            <option value="#0000FF">Blue</option>
+        </select>
+    </div>
     <button id="addButton">Add Watermark</button>
 </body>
 
