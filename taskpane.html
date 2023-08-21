@@ -24,6 +24,16 @@
         <label for="boldCheckbox">Bold:</label>
         <input type="checkbox" id="boldCheckbox">
     </div>
+    <div>
+        <label for="rotationDegree">Rotation Degree:</label>
+        <select id="rotationDegree">
+            <option value="0">0°</option>
+            <option value="45">45°</option>
+            <option value="90">90°</option>
+            <option value="135">135°</option>
+            <option value="180">180°</option>
+        </select>
+    </div>
     <!--<div>
         <label for="fontSize">Font Size:</label>
         <select id="fontSize">
@@ -60,6 +70,10 @@
             // Check if the checkbox for bold is checked
             const boldCheckbox = document.getElementById("boldCheckbox");
             const isBold = boldCheckbox.checked;
+
+            // Get the selected rotation degree from the dropdown
+            const rotationDegreeSelect = document.getElementById("rotationDegree");
+            const selectedRotationDegree = rotationDegreeSelect.value;
             
             // Get the selected font size from the dropdown
             //const fontSizeSelect = document.getElementById("fontSize");
@@ -73,22 +87,28 @@
                 //<div style="font-size: 90px; font-weight: bold; color: ${watermarkColorValue};">${watermarkTextValue}</div>
             //`;
 
-
-            // Construct the watermark text with formatting, color, and bold style
-            let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
-            if (isBold) {
-                watermarkText += " font-weight: bold;";
-            }
-            watermarkText += `">${watermarkTextValue}</div>`;
-
             // Construct the watermark text with font size
             //let style = `size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
-
             //if (isBold) {
                 //style += " font-weight: bold;";
             //}
-
             //const watermarkText = `<div style="${style}">${watermarkTextValue}</div>`;
+            
+            // Construct the watermark text with formatting, color, and bold style latest
+            //let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
+            //if (isBold) {
+                //watermarkText += " font-weight: bold;";
+            //}
+            //watermarkText += `">${watermarkTextValue}</div>`;
+
+            // Construct the watermark text with formatting, color, bold style, and rotation
+            let style = `font-size: 60px; color: ${watermarkColorValue};`;
+
+            if (isBold) {
+                style += " font-weight: bold;";
+            }
+
+            const watermarkText = `<div style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
             
             // Insert the watermark HTML with styling into the current selection
             await Office.context.document.setSelectedDataAsync(watermarkText, options);
