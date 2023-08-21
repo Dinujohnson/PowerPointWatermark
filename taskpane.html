@@ -53,6 +53,10 @@
             // Check if the checkbox for bold is checked
             const boldCheckbox = document.getElementById("boldCheckbox");
             const isBold = boldCheckbox.checked;
+            
+            // Get the selected font size from the range input
+            const fontSizeInput = document.getElementById("font-size");
+            const selectedFontSize = fontSizeInput.value;
 
             // Set coercion type to text since we want to apply formatting
             const options = { coercionType: Office.CoercionType.Text };
@@ -62,15 +66,22 @@
                 //<div style="font-size: 90px; font-weight: bold; color: ${watermarkColorValue};">${watermarkTextValue}</div>
             //`;
 
+
             // Construct the watermark text with formatting, color, and bold style
-            let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
+            //let watermarkText = `<div style="font-size: 60px; color: ${watermarkColorValue};`;
+            //if (isBold) {
+                //watermarkText += " font-weight: bold;";
+            //}
+            //watermarkText += `">${watermarkTextValue}</div>`;
+
+            // Construct the watermark text with formatting, color, bold style, and font size
+            let style = `font-size: ${selectedFontSize}px; color: ${watermarkColorValue};`;
 
             if (isBold) {
-                watermarkText += " font-weight: bold;";
+                style += " font-weight: bold;";
             }
 
-            watermarkText += `">${watermarkTextValue}</div>`;
-
+            const watermarkText = `<div style="${style}">${watermarkTextValue}</div>`;
             
             // Insert the watermark HTML with styling into the current selection
             await Office.context.document.setSelectedDataAsync(watermarkText, options);
