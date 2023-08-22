@@ -41,7 +41,7 @@
         </select>
     </div> -->
     
-    <!--<div>
+    <div>
         <label for="fontSize">Font Size:</label>
         <select id="fontSize">
             <option value="10">10</option>
@@ -51,8 +51,8 @@
             <option value="80">80</option>
             <option value="90">90</option>
             <!-- Add more options as needed -->
-        <!-- </select>
-    </div> -->
+         </select>
+    </div>
 
     <div>
         <label for="fontFamily">Font Family:</label>
@@ -128,8 +128,8 @@
             //const selectedRotationDegree = rotationDegreeSelect.value;
             
             // Get the selected font size from the dropdown
-            //const fontSizeSelect = document.getElementById("fontSize");
-            //const selectedFontSize = fontSizeSelect.value;
+            const fontSizeSelect = document.getElementById("fontSize");
+            const selectedFontSize = fontSizeSelect.value;
 
             // Set coercion type to text since we want to apply formatting
             const options = { coercionType: Office.CoercionType.Text };
@@ -183,7 +183,7 @@
     }
 
             // Construct the watermark text with formatting, color, bold style, and rotation
-            let style = `font-size: 16.4px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
+            let style = `font-size: ${selectedFontSize}px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
 
             if (isBold) {
                 style += " font-weight: bold;";
