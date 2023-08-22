@@ -4,6 +4,12 @@
 <head>
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <style>
+    .watermark-text {
+        font-size: 16.4px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -59,11 +65,11 @@
         </select>
     </div>
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label class="ms-Label">Font Size</label>
         <input type="range" id="font-size" min="10" max="150" step="1" class="ms-Slider-slider" />
         <output id="font-size-output">20</output>
-    </div>
+    </div> -->
     <div class="form-group-rotation">
         <div class="rotation-control">
             <label class="ms-Label">Rotation Degree</label>
@@ -177,13 +183,13 @@
     }
 
             // Construct the watermark text with formatting, color, bold style, and rotation
-            let style = `font-size: 60px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
+            let style = `font-size: 16.4px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
 
             if (isBold) {
                 style += " font-weight: bold;";
             }
             
-            const watermarkText = `<div style="${style} font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
+            const watermarkText = `<div class="watermark-text" style="${style} font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
             //const watermarkText = `<div style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
             //const watermarkText = `<div class="rotate" style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
             
