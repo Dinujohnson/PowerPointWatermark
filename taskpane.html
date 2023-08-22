@@ -4,11 +4,11 @@
 <head>
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <!-- <style>
+    <style>
     .watermark-text {
-        font-size: 16.4px;
+        font-size: 40px;
     }
-</style> -->
+</style> 
 
 
 </head>
@@ -184,15 +184,15 @@
     }
 
             // Construct the watermark text with formatting, color, bold style, and rotation
-            //let style = `font-size: ${selectedFontSize}px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
+            let style = `font-size: ${selectedFontSize}px; color: ${watermarkColorValue}; opacity: ${selectedOpacity};`;
 
-            //if (isBold) {
-                //style += " font-weight: bold;";
-            //}
+            if (isBold) {
+                style += " font-weight: bold;";
+            }
             
-            //const watermarkText = `<div class="watermark-text" style="${style} font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
+            const watermarkText = `<div class="watermark-text" style="${style} font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
 
-            const watermarkText = `<div style="font-size: ${selectedFontSize}px; color: ${watermarkColorValue}; opacity: ${selectedOpacity}; font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
+            //const watermarkText = `<div style="font-size: ${selectedFontSize}px; color: ${watermarkColorValue}; opacity: ${selectedOpacity}; font-family: ${selectedFontFamily};">${watermarkTextValue}</div>`;
 
             
             //const watermarkText = `<div style="${style} transform: rotate(${selectedRotationDegree}deg);">${watermarkTextValue}</div>`;
