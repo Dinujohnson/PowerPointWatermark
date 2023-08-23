@@ -122,19 +122,19 @@
     });
 
 async function getSlideSize() {
-    try {
-        // Get the slide size using the Office JavaScript API
-        const slide = Office.context.document.getSelectedSlide();
-        const slideWidth = slide.width;
-        const slideHeight = slide.height;
+            try {
+                // Get the slide size using the Office JavaScript API
+                const slide = Office.context.document.getSelectedSlide();
+                const slideWidth = slide.width;
+                const slideHeight = slide.height;
 
-        // Display the slide size in the output element
-        const slideSizeOutput = document.getElementById("slideSizeOutput");
-        slideSizeOutput.textContent = `Slide Size: ${slideWidth} x ${slideHeight}`;
-    } catch (error) {
-        console.error("Error getting slide size:", error);
-    }
-}
+                // Display the slide size in the output element
+                const slideSizeOutput = document.getElementById("slideSizeOutput");
+                slideSizeOutput.textContent = `Slide Size: ${slideWidth} x ${slideHeight}`;
+            } catch (error) {
+                console.error("Error getting slide size:", error);
+            }
+        }
     
     async function addWatermark() {
         try {
