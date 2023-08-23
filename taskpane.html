@@ -105,6 +105,9 @@
     <input type="range" id="opacity" min="0" max="1" step="0.01" class="ms-Slider-slider" />
     <output id="opacity-output">1</output>
 </div>
+    <button id="getSizeButton">Get Slide Size</button>
+    <div id="slideSizeOutput"></div>
+
     
     <button id="addButton">Add Watermark</button>
 </body>
@@ -114,9 +117,25 @@
         // Check that we loaded into PowerPoint
         if (info.host === Office.HostType.PowerPoint) {
             document.getElementById("addButton").onclick = addWatermark;
+             document.getElementById("getSizeButton").onclick = getSlideSize;
         }
     });
 
+async function getSlideSize() {
+    try {
+        // Get the slide size using the Office JavaScript API
+        const slide = Office.context.document.getSelectedSlide();
+        const slideWidth = slide.width;
+        const slideHeight = slide.height;
+
+        // Display the slide size in the output element
+        const slideSizeOutput = document.getElementById("slideSizeOutput");
+        slideSizeOutput.textContent = `Slide Size: ${slideWidth} x ${slideHeight}`;
+    } catch (error) {
+        console.error("Error getting slide size:", error);
+    }
+}
+    
     async function addWatermark() {
         try {
              // Get the text from the input field
